@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    image: contdel-healthcheck:lesson05
+    ports: ["127.0.0.1:8318:3000"]
+    environment:
+      STARTUP_DELAY_MS: "12000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "probe.js", "http://127.0.0.1:3000/health/ready"]
+      interval: 5s
+      timeout: 2s
+      retries: 3
+      start_period: 20s
+      start_interval: 2s
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=1m,mode=1777"]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: local
+      options: {max-size: "10m", max-file: "3"}

@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Compose: ein Einstieg, zwei Dienste</title>
+<style>body{font:20px/1.5 system-ui,sans-serif;max-width:1000px;margin:50px auto;padding:0 24px;color:#253a35}header{border-left:5px solid #77ab31;padding-left:20px}h1{font-size:36px}h2{font-size:23px}code{font-size:18px}section{margin:30px 0;padding:20px 0;border-top:1px solid #cbd6cc}.flow{background:#edf3e7;padding:22px;font-size:23px}a{color:#216b64}</style></head>
+<body><header><p>Continuous Delivery · Beispiel 05</p><h1>Ein Host-Port, zwei Dienste</h1><p>Diese Seite liefert Apache. Ihr Browser erreicht sie über den Nginx-Proxy.</p></header>
+<p class="flow">Browser :8080 → Nginx :80 → Apache :80</p>
+<section><h2>Den zweiten Weg prüfen</h2><p><a href="/api/">/api/ aufrufen</a>: Der Proxy leitet an den Node-Dienst weiter.</p><p><a href="/api/health">/api/health aufrufen</a>: Dort antwortet die Health-Route der Anwendung.</p><p><code>/api/health → nodeapp:3000/health</code></p></section>
+<section><h2>Was sehen Sie hier?</h2><p><code>public-html/index.html</code> ist als schreibgeschützter Bind-Mount im Apache-Service eingebunden. Die Pfadzuordnung steht in <code>nginx.conf</code>. Nur der Proxy veröffentlicht einen Host-Port.</p></section>
+</body></html>

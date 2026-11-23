@@ -1,0 +1,9 @@
+.git
+node_modules
+coverage
+reports
+*.log
+.env*
+README.md
+healthcheck.svg
+compose*.yaml

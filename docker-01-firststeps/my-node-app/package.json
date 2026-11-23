@@ -1,0 +1,13 @@
+{
+  "name": "contdel-container-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Small HTTP service for the container exercises",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

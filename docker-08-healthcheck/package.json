@@ -1,0 +1,13 @@
+{
+  "name": "contdel-healthcheck-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Health status, readiness and restart behaviour in a small HTTP service",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

@@ -1,0 +1,26 @@
+node_modules/
+target/
+dist/
+build/
+reports/
+coverage/
+*.log
+.env
+.env.*
+!.env.example
+__pycache__/
+.idea/
+*.pem
+*.key
+nginx/log/
+
+# Generated PDF exports of these Markdown case sheets
+/lessons/lesson-05/anti-patterns/*.pdf
+
+# PDF exports of course case sheets
+/lessons/lesson-06/anti-patterns/*.pdf
+
+# Local image exports are build artifacts, not course sources.
+*.tar
+*.tar.gz
+*.tgz

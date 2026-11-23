@@ -1,0 +1,26 @@
+services:
+  web:
+    build: ./web
+    image: contdel-network-web:lesson06
+    ports: ["127.0.0.1:8303:3000"]
+    environment:
+      COUNTER_URL: http://counter:3000
+    depends_on:
+      counter:
+        condition: service_healthy
+    networks: [lab]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+  counter:
+    build: ./counter
+    image: contdel-network-counter:lesson06
+    volumes: ["counter-data:/data"]
+    networks: [lab]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+volumes:
+  counter-data: {}
+networks:
+  lab: {}
